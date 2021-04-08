@@ -4,8 +4,8 @@
 #include "lock.h"
 #include "test.h"
 
-extern void free_node_later(int, node_t *);
-extern node_t* init_new_node();
+void free_node_later(int, node_t *);
+node_t* init_new_node();
 
 
 int delete(int key, node_t** head, lock_t* lock)

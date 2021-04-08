@@ -171,7 +171,7 @@ void bt_sighandler(int sig, struct sigcontext ctx) {
 #endif
 
 	if (sig == SIGSEGV)
-		printf("Got signal %d, faulty address is %p, "
+		printf("Got signal %d, faulty address is %lx, "
 		   "from %p\n", sig, ctx.cr2, inst);
 	else
 		printf("Got signal %d\n", sig);
@@ -185,10 +185,10 @@ void bt_sighandler(int sig, struct sigcontext ctx) {
         }
 
 
-	printf("[%d] Execution path:\n", thread);
+	printf("[%ld] Execution path:\n", thread);
 	/* skip first stack frame (points here) */
 	for (i=1; i<trace_size; ++i)
-		printf("[%d] %s\n", thread, messages[i]);
+		printf("[%ld] %s\n", thread, messages[i]);
 
 	exit(-1);
 }

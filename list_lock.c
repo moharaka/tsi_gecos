@@ -22,6 +22,7 @@
 #include <pthread.h>
 #include "lock.h"
 #include "test.h"
+#include "allocator_malloc.h"
 
 #define DEBUG 1
 
@@ -75,7 +76,6 @@ search_retry:
 #ifdef GCLOCK_NONEED
 __thread  node_t* free_later;
 //we need to free the node after unlock!
-inline
 void free_node_later(int thread, node_t* n)
 {
 	if(free_later)
@@ -86,7 +86,6 @@ void free_node_later(int thread, node_t* n)
 	free_later = n;
 }
 #else
-inline
 void free_node_later(int thread, node_t* n)
 {
 	free_node(n);
@@ -94,7 +93,6 @@ void free_node_later(int thread, node_t* n)
 #endif
 
 
-inline
 node_t* init_new_node()
 {
 	return new_node();

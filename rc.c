@@ -1,5 +1,6 @@
 #include "rc.h"
 #include <assert.h>
+#include "allocator_malloc.h"
 
 int increment_if_not_zero(unsigned long *p)
 {

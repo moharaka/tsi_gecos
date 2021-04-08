@@ -12,7 +12,7 @@ RCU_S=-DRCU_SIGNAL -lurcu-signal
 
 MAIN=mrow.c
 
-all: gecos sigecos spin rwlock hp rc rcu
+all: gecos sigecos spin rwlock hp rc #rcu
 
 
 gc_based: gecos gecos_back gecos_relink sigecos

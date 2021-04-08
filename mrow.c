@@ -27,6 +27,7 @@
 #include "lock.h"
 #include "test.h"
 #include "util.h"
+#include "allocator_malloc.h"
 
 
 /************************************************************************************/
@@ -427,7 +428,7 @@ int main(int argc, char **argv)
 	rcu_init();
 #endif
 	setup_test(argc, argv);
-	printf("nbthreads %lu nbupdaters %lu nbbuckets %lu perbucket-pbnodes %lu nbtest %d nbreaders %d nbcores %d"
+	printf("nbthreads %lu nbupdaters %lu nbbuckets %lu perbucket-pbnodes %lu nbtest %d nbreaders %ld nbcores %d"
 #ifdef POPULATE
 			" POPULATE"
 #endif

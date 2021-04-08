@@ -76,7 +76,6 @@ void free_node_later(int thread, node_t * node)
 #endif
 }
 
-inline
 node_t* init_new_node()
 {
 	return new_node();

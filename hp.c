@@ -23,6 +23,7 @@
 
 #include "hp.h"
 #include <stdlib.h>
+#include "allocator_malloc.h"
 
 
 zombie_list zlist[MAX_THREAD];
@@ -114,7 +115,6 @@ void free_node_later(int thread, node_t * node)
         scan(thread);
 }
 
-inline
 node_t* init_new_node()
 {
 	return new_node();

@@ -22,6 +22,7 @@
 #include <pthread.h>
 #include "lock.h"
 #include "test.h"
+#include "allocator_malloc.h"
 
 int search(int key, node_t** head, lock_t* lock)
 {

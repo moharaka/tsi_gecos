@@ -22,6 +22,7 @@
 #include <pthread.h>
 #include "lock.h"
 #include "test.h"
+#include "allocator_malloc.h"
 
 #ifdef GECOS_B
 int search(int key, node_t** head, lock_t* lock)
@@ -170,7 +171,6 @@ retry:
 
 #ifdef OSA_BEST
 __thread  node_t* free_later;
-inline
 void free_node_later(int thread, node_t* n)
 {
 	if(free_later)
@@ -185,7 +185,6 @@ void free_node_later(int thread, node_t* n)
 
 #else
 
-inline
 void free_node_later(int thread, node_t* n)
 {
 	n->gc++;//last moment
@@ -200,7 +199,6 @@ node_t* osa_new_node()
 	return new_node();
 }
 
-inline
 node_t* init_new_node()
 {
 	return osa_new_node();
