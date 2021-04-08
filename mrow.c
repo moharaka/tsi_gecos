@@ -401,7 +401,7 @@ void setup_test(int argc, char **argv)
 {
 
 	if(argc < 5){
-		printf("usage: %s nbthreads update(1/0) nbbuckets prebucket-pbnodes\n", argv[0]); 
+		printf("usage: %s nbthreads nbupdaters nbbuckets perbucket-pbnodes\n", argv[0]); 
 		exit(1);
 	}
 
